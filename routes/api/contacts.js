@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const ctrl = require("../../controllers/contacts.js");
-const { isValidId, validateBody } = require("../../middleware");
-const { updateFavoriteSchema } = require("../../schemas/contactSchema.js");
+const { isValidId, validateBody } = require("../../middlewares");
+const updateFavoriteSchema = require("../../schemas");
 
 router.get("/", ctrl.listContacts);
 

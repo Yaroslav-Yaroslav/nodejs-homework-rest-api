@@ -1,6 +1,6 @@
-const Contact = require("../models/contact.js");
+const {Contact} = require("../models");
 const { HttpError, ctrlWrapper } = require("../helpers");
-const { validateData } = require("../schemas/contactSchema.js");
+const validateData = require("../schemas");
 
 const listContacts = async (req, res) => {
   const result = await Contact.find({}, "-createdAt -updatedAt");
