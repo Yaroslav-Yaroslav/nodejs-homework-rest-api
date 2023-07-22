@@ -28,6 +28,4 @@ const validateData = (body) => {
   }
 };
 
-const updateFavoriteSchema = Joi.object({ favorite: Joi.boolean().required() });
-
-module.exports = { validateData, updateFavoriteSchema };
+module.exports =  validateData;
