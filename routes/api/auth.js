@@ -23,6 +23,6 @@ router.patch(
   ctrl.updateSubscriptionUser
 );
 
-router.patch('/wwwavatars', authenticate, upload.single("avatar"), ctrl.updateAvatar)
+router.patch('/avatars', authenticate, upload.single("avatar"), ctrl.updateAvatar)
 
 module.exports = router;
