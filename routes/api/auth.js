@@ -5,10 +5,15 @@ const {
   registerSchema,
   loginSchema,
   updateSubscriptionSchema,
+  emailSchema,
 } = require("../../schemas");
 const ctrl = require("../../controllers/auth");
 
 router.post("/register", validateBody(registerSchema), ctrl.register);
+
+router.get("/verify/:verificationCode", ctrl.verifyEmail);
+
+router.post("/verify", validateBody(emailSchema),ctrl.resendVerifyEmail)
 
 router.post("/login", validateBody(loginSchema), ctrl.login);
 
@@ -23,6 +28,11 @@ router.patch(
   ctrl.updateSubscriptionUser
 );
 
-router.patch('/avatars', authenticate, upload.single("avatar"), ctrl.updateAvatar)
+router.patch(
+  "/avatars",
+  authenticate,
+  upload.single("avatar"),
+  ctrl.updateAvatar
+);
 
 module.exports = router;
